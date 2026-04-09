@@ -51,6 +51,7 @@ a:active {
 }
 
 .menu-item{
+    min-width: 180px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -62,4 +63,18 @@ a:active {
     color: black;
     background-color: white;
     font-size: 2rem;
+}
+
+.input-field{
+  display: flex;
+  flex-direction: column;
+  width: 50vw;
+}
+
+.input-field > input{
+  width: 20vw;
+}
+
+.input-field > textarea{
+  height: 200px;
 }

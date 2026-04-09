@@ -1,7 +1,10 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MenuController;
 
 Route::view('/', 'pages.home')->name('home');
 
-Route::view('/menu', 'pages.menu')->name('menu');
+Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+
+Route::get('/createItem', [MenuController::class, 'create'])->name('createItem');
+Route::post('/menus', [MenuController::class, 'store']);

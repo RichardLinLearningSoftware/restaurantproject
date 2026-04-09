@@ -1,11 +1,16 @@
 @extends('layout.index')
 
 @section('content')
-        <main class="menu-main">
-        <div class="menu-item">
-            <h2>wow</h2>
-            <p>description</p>
-            <p>$12</p>
-        </div>
+
+    <h2>Menu</h2>
+    <main class="menu-main">
+        @foreach ($menuus as $menu)
+            <div class="menu-item">
+                <h3>{{ $menu->name }}</h3>
+                <p>{{ $menu->description }}</p>
+                <p>€{{ $menu->price }}</p>
+            </div>
+        @endforeach
     </main>
+    
 @endsection

@@ -11,6 +11,7 @@
         <header class="header">
             <a href="{{ route('home') }}">Home</a>
             <a href="{{ route('menu') }}">Menu</a>
+            <a href="{{ route('createItem') }}">Create item</a>
         </header>
 
         <main class="home-main">
