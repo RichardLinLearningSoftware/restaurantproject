@@ -12,8 +12,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        $menuus = Menu::all();
-        return view('pages.menu', compact('menuus'));
+        $menus = Menu::all();
+        return view('pages.menu', compact('menus'));
     }
 
     /**
@@ -29,13 +29,19 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+        ]);
+
         Menu::create([
             'name' => $request->name,
             'description' => $request->description,
             'price' => $request->price,
         ]);
 
-        return redirect('/createItem');
+        return redirect('/menu');
     }
 
     /**
