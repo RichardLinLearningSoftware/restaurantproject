@@ -21,11 +21,10 @@ class MenuController extends Controller
      */
     public function create()
     {
-         if (auth()->user()->name !== 'adminAcount') {
-            return redirect('/');
+        if (auth()->user()->role === 'admin') {
+            return view('pages.createItem');
         }
-
-        return view('pages.createItem');
+        return redirect('/');
     }
 
     /**

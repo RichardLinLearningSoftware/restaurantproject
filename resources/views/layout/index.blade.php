@@ -12,7 +12,7 @@
             <a href="{{ route('home') }}">Home</a>
             <a href="{{ route('menu') }}">Menu</a>
             @auth
-                @if(auth()->user()->name === 'adminAcount')
+                @if(auth()->user()->role === 'admin')
                     <a href="{{ route('createItem') }}">Create item</a>
                 @endif
             @endauth
@@ -33,6 +33,7 @@
         <main class="home-main">
             @auth
                 <p>You are logged in as {{ auth()->user()->name }}</p>
+                <p>You are logged in as {{ auth()->user()->role }}</p>
             @endauth
             @guest
                 <p>You are NOT logged in</p>
