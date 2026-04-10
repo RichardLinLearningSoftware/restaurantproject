@@ -8,6 +8,13 @@
                 <h3>{{ $menu->name }}</h3>
                 <p>{{ $menu->description }}</p>
                 <p>€{{ $menu->price }}</p>
+
+                <!-- Edit button -->
+                @auth
+                    @if(auth()->user()->name === 'adminAcount')
+                        <a class="auth-link" href="">test link</a>
+                    @endif
+                @endauth
             </div>
         @endforeach
     </main>

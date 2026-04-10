@@ -11,18 +11,32 @@
         <header class="header">
             <a href="{{ route('home') }}">Home</a>
             <a href="{{ route('menu') }}">Menu</a>
-            <a href="{{ route('createItem') }}">Create item</a>
+            @auth
+                @if(auth()->user()->name === 'adminAcount')
+                    <a href="{{ route('createItem') }}">Create item</a>
+                @endif
+            @endauth
+
+            @guest
+                <a href="{{ route('login') }}">Log in</a>
+                <a href="{{ route('register') }}"> Register</a>
+            @endguest
+
+            @auth
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit">Logout</button>
+                </form>
+            @endauth
         </header>
 
-        @auth
-            <p>You are logged in as {{ auth()->user()->name }}</p>
-        @endauth
-
-        @guest
-            <p>You are NOT logged in</p>
-        @endguest
-
         <main class="home-main">
+            @auth
+                <p>You are logged in as {{ auth()->user()->name }}</p>
+            @endauth
+            @guest
+                <p>You are NOT logged in</p>
+            @endguest
             @yield('content')
         </main>
 
