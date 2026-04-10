@@ -14,6 +14,14 @@
             <a href="{{ route('createItem') }}">Create item</a>
         </header>
 
+        @auth
+            <p>You are logged in as {{ auth()->user()->name }}</p>
+        @endauth
+
+        @guest
+            <p>You are NOT logged in</p>
+        @endguest
+
         <main class="home-main">
             @yield('content')
         </main>

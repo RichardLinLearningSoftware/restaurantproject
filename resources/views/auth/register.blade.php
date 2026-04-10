@@ -6,7 +6,7 @@
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" required autofocus autocomplete="name" />
+            <x-text-input id="name" name="name" required autofocus autocomplete="name" />
             <x-input-error :messages="$errors->get('name')"/>
         </div>
 

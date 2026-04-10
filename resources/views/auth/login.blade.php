@@ -9,7 +9,7 @@
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" required autofocus autocomplete="username" />
+            <x-text-input id="email" name="email" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('email')"/>
         </div>
 
