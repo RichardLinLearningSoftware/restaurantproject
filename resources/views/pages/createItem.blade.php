@@ -1,13 +1,6 @@
 @extends('layout.index')
 
 @section('content')
-    @if ($errors->any())
-        <div>
-            @foreach ($errors->all() as $error)
-                <p style="color:red">{{ $error }}</p>
-            @endforeach
-        </div>
-    @endif
 
     @error('name')
         <p>{{ $message }}</p>

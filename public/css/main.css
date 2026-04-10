@@ -6,17 +6,27 @@
 a:link {
   color: white;
 }
-
 a:visited {
   color: white;
 }
-
 a:hover {
   color: lightsteelblue;
 }
-
 a:active {
   color: white;
+}
+
+.auth-link{
+  color: black;
+}
+.auth-link:hover{
+  color: blue;
+}
+.auth-link:visited{
+  color: #0000aa;
+}
+.auth-link:active{
+  color: #000075;
 }
 
 .header{
