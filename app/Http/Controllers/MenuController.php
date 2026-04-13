@@ -31,13 +31,12 @@ class MenuController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
+    {   
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric|min:0',
         ]);
-
         Menu::create([
             'name' => $request->name,
             'description' => $request->description,
@@ -58,17 +57,31 @@ class MenuController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $menu = Menu::findOrFail($id);
+        return view('pages.editItem', compact('menu'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $menu = Menu::findOrFail($id);
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'price' => 'required|numeric|min:0',
+        ]);
+
+        $menu->update([
+            'name' => $request->name,
+            'description' => $request->description,
+            'price' => $request->price,
+        ]);
+
+        return redirect('/menu');
     }
 
     /**
@@ -76,6 +89,9 @@ class MenuController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $menu = Menu::findOrFail($id);
+        $menu->delete();
+
+        return redirect('/menu');
     }
 }

@@ -12,7 +12,18 @@
                 <!-- Edit button -->
                 @auth
                     @if(auth()->user()->name === 'adminAcount')
-                        <a class="auth-link" href="">test link</a>
+                        <a href="{{ route('menus.edit', $menu->id) }}">
+                            <p class="auth-link">
+                                Edit button
+                            </p>
+                        </a>
+
+                        <form method="POST" action="{{ route('menus.destroy', $menu->id) }}">
+                            @csrf
+                            @method('DELETE')
+
+                            <button type="submit">Delete</button>
+                        </form>
                     @endif
                 @endauth
             </div>
