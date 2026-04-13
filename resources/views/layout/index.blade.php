@@ -11,9 +11,11 @@
         <header class="header">
             <a href="{{ route('home') }}">Home</a>
             <a href="{{ route('menu') }}">Menu</a>
+            <a href="{{ route('contact') }}">contact</a>
             @auth
                 @if(auth()->user()->role === 'admin')
                     <a href="{{ route('createItem') }}">Create item</a>
+                    <a href="{{ route('review') }}">View reviews</a>
                 @endif
             @endauth
 
