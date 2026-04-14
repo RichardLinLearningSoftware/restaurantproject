@@ -12,8 +12,11 @@ class ContactController extends Controller
      */
     public function index()
     {   
-        $contacts = Contact::all();
-        return view('pages.contactMessages', compact('contacts'));
+        if (auth()->user()->role === 'admin') {
+            $contacts = Contact::all();
+            return view('pages.contactMessages', compact('contacts'));
+        }
+        return redirect('/');
     }
 
     /**
