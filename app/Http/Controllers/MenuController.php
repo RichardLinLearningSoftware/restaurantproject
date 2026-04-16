@@ -43,7 +43,7 @@ class MenuController extends Controller
             'price' => $request->price,
         ]);
 
-        return redirect('/menu');
+        return redirect('/menus');
     }
 
     /**
@@ -59,8 +59,8 @@ class MenuController extends Controller
      */
     public function edit($id)
     {
-        $menu = Menu::findOrFail($id);
-        return view('pages.editItem', compact('menu'));
+        $menus = Menu::all();
+        return view('pages.editItem', compact('id', 'menus'));
     }
 
     /**
@@ -81,7 +81,7 @@ class MenuController extends Controller
             'price' => $request->price,
         ]);
 
-        return redirect('/menu');
+        return redirect('/menus');
     }
 
     /**

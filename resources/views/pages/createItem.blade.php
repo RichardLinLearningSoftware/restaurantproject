@@ -14,7 +14,7 @@
         <p>{{ $message }}</p>
     @enderror
 
-    <form method="POST" action="/menus" class="input-field">
+    <form method="POST" action="{{ route('menus.store') }}" class="input-field">
         @csrf
 
         <input type="text" name="name" placeholder="Name">
