@@ -4,7 +4,7 @@
 
     <h2>Contact Us</h2>
 
-    <form method="POST" action="/reviews">
+    <form method="POST" action="{{ route('reviews.store') }}">
         @csrf
 
         <input type="text" name="name" placeholder="Your name" value="{{ old('name') }}">
